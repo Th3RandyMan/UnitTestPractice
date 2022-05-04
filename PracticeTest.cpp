@@ -155,3 +155,68 @@ TEST(PracticeTest, repeat6)	//size one string
   Practice testObject;
   ASSERT_EQ(testObject.count_starting_repeats("a"),0);	
 }
+
+
+//All nighter function tests
+TEST(PracticeTest, allnight1) //awake all week
+{
+  Practice testObject;
+  int sleep[7] = {0,0,0,0,0,0,0};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[0]);
+}
+
+TEST(PracticeTest, allnight2) //sleep everyday
+{
+  Practice testObject;
+  int sleep[7] = {7,2,5,3,4,5,6};
+  ASSERT_EQ(testObject.allnighter(sleep),nullptr);
+}
+
+TEST(PracticeTest, allnight3) //no sleep day 1
+{
+  Practice testObject;
+  int sleep[7] = {0,1,2,3,4,5,6};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[0]);
+}
+
+TEST(PracticeTest, allnight4) //no sleep day 2
+{
+  Practice testObject;
+  int sleep[7] = {1,0,2,3,4,5,6};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[1]);
+}
+
+TEST(PracticeTest, allnight5) //no sleep day 3
+{
+  Practice testObject;
+  int sleep[7] = {1,2,0,3,4,5,6};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[2]);
+}
+
+TEST(PracticeTest, allnight6) //no sleep day 4
+{
+  Practice testObject;
+  int sleep[7] = {1,2,3,0,4,5,6};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[3]);
+}
+
+TEST(PracticeTest, allnight7) //no sleep day 5
+{
+  Practice testObject;
+  int sleep[7] = {1,2,3,4,0,5,6};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[4]);
+}
+
+TEST(PracticeTest, allnight8) //no sleep day 6
+{
+  Practice testObject;
+  int sleep[7] = {1,2,3,4,5,0,6};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[5]);
+}
+
+TEST(PracticeTest, allnight9) //no sleep day 7
+{
+  Practice testObject;
+  int sleep[7] = {1,2,3,4,5,6,0};
+  ASSERT_EQ(testObject.allnighter(sleep),&sleep[6]);
+}
